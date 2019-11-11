@@ -51,6 +51,18 @@
         "url": "https://github.com/NixOS/nixpkgs-channels/archive/2d896998dc9b1b0daeb8a180dc170733f1225678.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "org2gfm": {
+        "branch": "master",
+        "description": "Convert Org mode files to Github Flavored Markdown (GFM) using Nix",
+        "homepage": null,
+        "owner": "shajra",
+        "repo": "org2gfm",
+        "rev": "7270b0485f6087c1abc4252ca467e43429073c75",
+        "sha256": "1x37xlmvr9p89v7c6l460my2jjis5xzjidwsd9lp4yzi3vx3l7q5",
+        "type": "tarball",
+        "url": "https://github.com/shajra/org2gfm/archive/7270b0485f6087c1abc4252ca467e43429073c75.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "qmk": {
         "branch": "master",
         "description": "Open-source keyboard firmware for Atmel AVR and Arm USB families",
