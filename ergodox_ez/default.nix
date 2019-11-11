@@ -2,7 +2,7 @@
 , keymap  ? (import ../config.nix).default.keymap.ergodoxez
 }:
 
-with (import ../common);
+with (import ../nix);
 
 let
 

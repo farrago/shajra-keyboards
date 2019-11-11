@@ -2,7 +2,7 @@
 , keymap  ? (import ../config.nix).default.keymap.model01
 }:
 
-with (import ../common);
+with (import ../nix);
 
 let
 

@@ -1,4 +1,4 @@
-with (import ./common);
+with (import ./nix);
 
 let
 
@@ -40,4 +40,4 @@ in
     // (customFlash "model01"   ./model_01)
     // (customHex   "ergodoxez" ./ergodox_ez)
     // (customHex   "model01"   ./model_01)
-    // { licenses-thirdparty = import ./common/licenses.nix; }
+    // { licenses-thirdparty = import ./nix/licenses.nix; }

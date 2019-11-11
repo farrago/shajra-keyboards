@@ -1,4 +1,4 @@
-RUN_NIX="$PROJECT_ROOT/common/run.nix"
+RUN_NIX="$PROJECT_ROOT/nix/run.nix"
 
 
 nix run \
