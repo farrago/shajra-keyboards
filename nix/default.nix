@@ -1,23 +1,22 @@
-let fromGitHub = pkgs: config: name:
-        with config; pkgs.fetchFromGitHub {
-            inherit owner repo sha256 name;
-            rev = commit;
+let fromGitHub = pkgs: source: name:
+        with source; pkgs.fetchFromGitHub {
+            inherit owner repo rev sha256 name;
             fetchSubmodules = true;
         };
+
+    sources = builtins.fromJSON
+        (builtins.readFile ./sources.json);
 
 in rec {
 
     config = import ../config.nix;
 
     thirdParty = {
-        nixpkgs = with config.nixpkgs;
-            builtins.fetchTarball {
-                url = "https://github.com/${owner}/${repo}/tarball/${commit}";
-                inherit sha256;
-            };
-        qmk = fromGitHub pkgs config.qmk "qmk-src";
-        kaleidoscope = fromGitHub pkgs config.kaleidoscope "kaleidoscope-src";
-        model01 = fromGitHub pkgs config.model01 "model01-src";
+        nixpkgs = with sources.nixpkgs;
+            builtins.fetchTarball { inherit url sha256; };
+        qmk = fromGitHub pkgs sources.qmk "qmk-src";
+        kaleidoscope = fromGitHub pkgs sources.kaleidoscope "kaleidoscope-src";
+        model01 = fromGitHub pkgs sources.model01 "model01-src";
     };
 
     pkgs = import thirdParty.nixpkgs {};
@@ -31,7 +30,7 @@ in rec {
             failNotFound = throw "keymap dir not found: ${msgDir}";
             failNotDir = throw "not a directory: ${msgDir}";
         in if hasKeymap
-           then if isDirectory then result else failNotDir
-           else failNotFound;
+            then if isDirectory then result else failNotDir
+            else failNotFound;
 
 }
