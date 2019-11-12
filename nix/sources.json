@@ -9,7 +9,7 @@
         "repo": "Kaleidoscope-Bundle-Keyboardio",
         "rev": "475659a6e36cec3142f3cdceffa6e166332d8a5b",
         "sha256": "0n2f82xxrxvdw7c5kqcdp611wmn38q1x1pnkjigskx8g1v1klwwj",
-        "type": "github",
+        "type": "tarball",
         "url": "https://github.com/keyboardio/Kaleidoscope-Bundle-Keyboardio/archive/475659a6e36cec3142f3cdceffa6e166332d8a5b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
@@ -23,7 +23,7 @@
         "repo": "Model01-Firmware",
         "rev": "4299824b114a001fd74ae790669ff0d39563d62d",
         "sha256": "08ql995bdg5r1lndvdbmx2pfn8f2a6n58p2q8r6bkf81hy51kfa4",
-        "type": "github",
+        "type": "tarball",
         "url": "https://github.com/keyboardio/Model01-Firmware/archive/4299824b114a001fd74ae790669ff0d39563d62d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
@@ -66,15 +66,13 @@
     "qmk": {
         "branch": "master",
         "description": "Open-source keyboard firmware for Atmel AVR and Arm USB families",
-        "fetchSubmodules": true,
         "homepage": "https://qmk.fm",
-        "name": "qmk",
         "owner": "qmk",
         "repo": "qmk_firmware",
-        "rev": "54d8251f6f82886c0a83d76d2ecb8bee930611c4",
-        "sha256": "0gjzfkx1viqib2jpn1bbhmji8gi3a7gr2ql8yq0cd6n84gaqlxa2",
-        "type": "github",
-        "url": "https://github.com/qmk/qmk_firmware/archive/54d8251f6f82886c0a83d76d2ecb8bee930611c4.tar.gz",
+        "rev": "b2b947f815dd4930b12851faf1b42ceb12aab6ee",
+        "sha256": "0nbw006q08b4zlkn1jbbgpi011jd8vmgr5ka4dran0y0bpjkcryn",
+        "type": "tarball",
+        "url": "https://github.com/qmk/qmk_firmware/archive/b2b947f815dd4930b12851faf1b42ceb12aab6ee.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

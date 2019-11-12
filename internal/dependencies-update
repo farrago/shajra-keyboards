@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+cd "$(dirname "$0")/.."
+nix run \
+    --file ./default.nix \
+    '(
+        let sources = import ./nix/sources.nix;
+            overlay = _: self: {
+                niv = import sources.niv {};
+            };
+            pkgs = import sources.nixpkgs {
+                config = {};
+                overlays = [ overlay ];
+            };
+        in pkgs.niv
+    )' \
+    --ignore-environment \
+    --command niv update
