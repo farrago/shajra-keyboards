@@ -1,4 +1,6 @@
-let fromGitHub = pkgs: source: name:
+let 
+
+    fromGitHub = pkgs: source: name:
         with source; pkgs.fetchFromGitHub {
             inherit owner repo rev sha256 name;
             fetchSubmodules = true;
@@ -7,30 +9,63 @@ let fromGitHub = pkgs: source: name:
     sources = builtins.fromJSON
         (builtins.readFile ./sources.json);
 
-in rec {
+    nix-project-all = import (import ./sources.nix).nix-project;
 
-    config = import ../config.nix;
-
-    thirdParty = {
-        nixpkgs = with sources.nixpkgs;
-            builtins.fetchTarball { inherit url sha256; };
-        qmk = fromGitHub pkgs sources.qmk "qmk-src";
-        kaleidoscope = fromGitHub pkgs sources.kaleidoscope "kaleidoscope-src";
-        model01 = fromGitHub pkgs sources.model01 "model01-src";
+    pkgs = import (import ./sources.nix).nixpkgs {
+        config = {};
     };
 
-    pkgs = import thirdParty.nixpkgs {};
+    qmk-factory = fromGitHub pkgs sources.qmk "qmk-src";
 
-    keymapPath = keymapsPath: keymapName:
-        let readKeymaps = builtins.readDir keymapsPath;
-            hasKeymap = readKeymaps ? "${keymapName}";
-            isDirectory = readKeymaps.${keymapName} == "directory";
-            result = "${keymapsPath}/${keymapName}";
-            msgDir = "${toString keymapsPath}/${keymapName}";
-            failNotFound = throw "keymap dir not found: ${msgDir}";
-            failNotDir = throw "not a directory: ${msgDir}";
-        in if hasKeymap
-            then if isDirectory then result else failNotDir
-            else failNotFound;
+    kaleidoscope-factory =
+        fromGitHub pkgs sources.kaleidoscope "kaleidoscope-src";
+
+    model01-factory = fromGitHub pkgs sources.model01 "model01-src";
+
+    shajra-keyboards-common = pkgs.callPackage (import ./common.nix) {
+        inherit nix-project-all;
+    };
+
+in rec {
+
+    shajra-keyboards-ergodoxez = 
+        pkgs.callPackage (import ./ergodoxez.nix) {
+            inherit 
+            qmk-factory
+            shajra-keyboards-common;
+        };
+
+    shajra-keyboards-model01 = 
+        pkgs.callPackage (import ./model01.nix) {
+            inherit 
+            kaleidoscope-factory
+            model01-factory
+            shajra-keyboards-common;
+        };
+
+    shajra-keyboards-flash = 
+        pkgs.callPackage (import ./flash.nix) {
+            inherit shajra-keyboards-common;
+        };
+
+    shajra-keyboards-flash-scripts = 
+        pkgs.callPackage (import ./flash-scripts.nix) {
+            inherit shajra-keyboards-flash;
+        };
+
+    shajra-keyboards-licenses = 
+        pkgs.callPackage (import ./licenses.nix) {
+            inherit 
+            kaleidoscope-factory
+            model01-factory
+            qmk-factory
+            shajra-keyboards-common;
+        };
+
+    org2gfm = nix-project-all.org2gfm;
+
+    nix-project = nix-project-all.nix-project;
+
+    inherit pkgs;
 
 }

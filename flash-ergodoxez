@@ -1,11 +1,12 @@
 #!/bin/sh -eu
 
+cd "$(dirname "$0")"
 
-PROJECT_ROOT="$(dirname "$0")"
-RUN_SH="$PROJECT_ROOT/nix/run.sh"
-BUILD_NIX="$PROJECT_ROOT/ergodox_ez"
-KEYBOARD_ID="ergodoxez"
-KEYBOARD_DESC="ZSA Technology Lab's Ergodox EZ"
-
-
-. "$RUN_SH"
+nix run \
+    --ignore-environment \
+    --file nix \
+    shajra-keyboards-flash-scripts.ergodoxez \
+    --command \
+    flash-run \
+    --nix "$(command -v nix)" \
+    "$@"

@@ -7,10 +7,10 @@
         "name": "kaleidoscope",
         "owner": "keyboardio",
         "repo": "Kaleidoscope-Bundle-Keyboardio",
-        "rev": "475659a6e36cec3142f3cdceffa6e166332d8a5b",
-        "sha256": "0n2f82xxrxvdw7c5kqcdp611wmn38q1x1pnkjigskx8g1v1klwwj",
+        "rev": "55065cec598906c3ef336e6cf5e28e0118c4c63f",
+        "sha256": "0wxvhya7jk4gji2f4pl7qsgh2yjjnhrvxk46q1y0a3zf6kvqsq0i",
         "type": "tarball",
-        "url": "https://github.com/keyboardio/Kaleidoscope-Bundle-Keyboardio/archive/475659a6e36cec3142f3cdceffa6e166332d8a5b.tar.gz",
+        "url": "https://github.com/keyboardio/Kaleidoscope-Bundle-Keyboardio/archive/55065cec598906c3ef336e6cf5e28e0118c4c63f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "model01": {
@@ -21,10 +21,10 @@
         "name": "model01",
         "owner": "keyboardio",
         "repo": "Model01-Firmware",
-        "rev": "4299824b114a001fd74ae790669ff0d39563d62d",
-        "sha256": "08ql995bdg5r1lndvdbmx2pfn8f2a6n58p2q8r6bkf81hy51kfa4",
+        "rev": "2f9d140ba94d6c5934ad17eed98654211706c7a7",
+        "sha256": "10wwr58khqf4shbz0lvbcn9fj1myvf371411r1bfl4gk9vn0mdal",
         "type": "tarball",
-        "url": "https://github.com/keyboardio/Model01-Firmware/archive/4299824b114a001fd74ae790669ff0d39563d62d.tar.gz",
+        "url": "https://github.com/keyboardio/Model01-Firmware/archive/2f9d140ba94d6c5934ad17eed98654211706c7a7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -33,10 +33,22 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "6da5c19aa220dfd840031e0cdbe83bf8f807fd50",
-        "sha256": "173gkldf4in77ksm8bgf7bhkfyc4ayddka4cgxv5361kpgyvgccw",
+        "rev": "abd0de3269fd712955d27b70e32921841c7b8bb7",
+        "sha256": "0b38n1ad00s1qqyw3ml3pypf8i1pw4aqw0bpa02qq9iv7sp3x0gz",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/6da5c19aa220dfd840031e0cdbe83bf8f807fd50.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/abd0de3269fd712955d27b70e32921841c7b8bb7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nix-project": {
+        "branch": "master",
+        "description": "Tools to manage a Nix-based project",
+        "homepage": "",
+        "owner": "shajra",
+        "repo": "nix-project",
+        "rev": "cdcade2af4a40e997e123efaa08f40ec0b5e1be9",
+        "sha256": "1niyp8zpgm63v66zha7pyq4rw99k0hqqnba9sgawi6ckqvlydjfy",
+        "type": "tarball",
+        "url": "https://github.com/shajra/nix-project/archive/cdcade2af4a40e997e123efaa08f40ec0b5e1be9.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -45,34 +57,22 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "2d896998dc9b1b0daeb8a180dc170733f1225678",
-        "sha256": "1vj3bwljkh55si4qjx52zgw7nfy6mnf324xf1l2i5qffxlh7qxb6",
+        "rev": "d85e435b7bded2596d7b201bcd938c94d8a921c1",
+        "sha256": "1msjm4kx1z73v444i1iybvmc7z0kfkbn9nzr21rn5yc4ql1jwf99",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/2d896998dc9b1b0daeb8a180dc170733f1225678.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "org2gfm": {
-        "branch": "master",
-        "description": "Convert Org mode files to Github Flavored Markdown (GFM) using Nix",
-        "homepage": null,
-        "owner": "shajra",
-        "repo": "org2gfm",
-        "rev": "7270b0485f6087c1abc4252ca467e43429073c75",
-        "sha256": "1x37xlmvr9p89v7c6l460my2jjis5xzjidwsd9lp4yzi3vx3l7q5",
-        "type": "tarball",
-        "url": "https://github.com/shajra/org2gfm/archive/7270b0485f6087c1abc4252ca467e43429073c75.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/d85e435b7bded2596d7b201bcd938c94d8a921c1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "qmk": {
         "branch": "master",
         "description": "Open-source keyboard firmware for Atmel AVR and Arm USB families",
         "homepage": "https://qmk.fm",
-        "owner": "qmk",
+        "owner": "shajra",
         "repo": "qmk_firmware",
-        "rev": "b2b947f815dd4930b12851faf1b42ceb12aab6ee",
-        "sha256": "0nbw006q08b4zlkn1jbbgpi011jd8vmgr5ka4dran0y0bpjkcryn",
+        "rev": "b7dcb98b257d68edda4bafa3cf85a8c221559e42",
+        "sha256": "136zva0w62979rmqichmy22hxz6wf2gj57mvl5qvyxc7jnk9d5ja",
         "type": "tarball",
-        "url": "https://github.com/qmk/qmk_firmware/archive/b2b947f815dd4930b12851faf1b42ceb12aab6ee.tar.gz",
+        "url": "https://github.com/shajra/qmk_firmware/archive/b7dcb98b257d68edda4bafa3cf85a8c221559e42.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

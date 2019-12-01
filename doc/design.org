@@ -1,5 +1,5 @@
 #+TITLE: Design of the "shajra" Keymap
-#+SETUPFILE: ../internal/setup.org
+#+SETUPFILE: ../support/setup.org
 
 This document discusses the rationale of the "shajra" keymap for the Ergodox EZ
 and Model 01 keyboards.
@@ -58,13 +58,11 @@ keymap. Maybe this one can work for you, possibly with a few tweaks.
 
 *** Model 01 "shajra" keymap
 
-    #+CAPTION: "shajra" keymap for Model 01
-    [[./model-01-shajra-layout.png]]
+    [[file:./model-01-shajra-layout.png]]
 
 *** Ergodox EZ "shajra" keymap
 
-    #+CAPTION: "shajra" keymap for Ergodox EZ
-    [[./ergodox-ez-shajra-layout.png]]
+    [[file:./ergodox-ez-shajra-layout.png]]
 
 *** Reading the keymap diagrams
 

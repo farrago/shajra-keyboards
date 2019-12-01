@@ -33,11 +33,11 @@ The "shajra" keymaps for both keyboards are extremely similar, which works out w
 
 ### Model 01 "shajra" keymap<a id="sec-2-0-1"></a>
 
-![img](doc/model-01-shajra-layout.png ""shajra" keymap for Model 01")
+![img](doc/model-01-shajra-layout.png)
 
 ### Ergodox EZ "shajra" keymap<a id="sec-2-0-2"></a>
 
-![img](doc/ergodox-ez-shajra-layout.png ""shajra" keymap for Ergodox EZ")
+![img](doc/ergodox-ez-shajra-layout.png)
 
 # Using these key mappings<a id="sec-3"></a>
 
@@ -113,23 +113,10 @@ Once udev is configured, when you plug in the Keyboardio Model 01, a `/dev/ttyAC
 In the following example, we can see the device is group-owned by the "dialout" group.
 
 ```shell
-ls -l # /dev/ttyACM0
+ls -l /dev/ttyACM0
 ```
 
-    total 108
-    -rw------- 1 tnks users 34916 Oct 20 21:45 COPYING.md
-    -rw------- 1 tnks users 12325 Nov 11 19:38 README.md
-    -rw------- 1 tnks users 13237 Nov 11 19:44 README.org
-    -rw------- 1 tnks users   250 Nov 10 23:44 config.nix
-    -rw------- 1 tnks users  1518 Nov 10 21:15 default.nix
-    drwx------ 2 tnks users  4096 Nov 11 18:48 doc
-    drwx------ 3 tnks users  4096 Nov 10 21:15 ergodox_ez
-    -rwx------ 1 tnks users   204 Nov 10 20:58 flash-ergodoxez
-    -rwx------ 1 tnks users   190 Nov 10 20:59 flash-model01
-    drwx------ 2 tnks users  4096 Nov 11 19:43 internal
-    -rwx------ 1 tnks users   199 Nov 10 20:58 licenses-thirdparty
-    drwx------ 3 tnks users  4096 Nov 10 22:17 model_01
-    drwx------ 2 tnks users  4096 Nov 11 15:22 nix
+    crw-rw---- 1 root dialout 166, 0 Nov 12 08:58 /dev/ttyACM0
 
 On most distributions, the follow commands should work to join a group (substituting `$TTY_GROUP` and `$USERNAME`):
 
@@ -170,16 +157,17 @@ Note, the first time you run the commands described below, you'll see Nix doing 
     ./flash-ergodoxez
     ```
     
-    ```shell
-    ./flash-ergodoxez |
-        while read -r l
-        do
-    	echo "$l"
-    	if echo "$l" | grep -q reset
-    	then exit 0
-    	fi
-        done
-    ```
+        
+        Flashing ZSA Technology Lab's Ergodox EZ (custom "shajra" keymap)
+        =================================================================
+        
+        FLASH SOURCE: /nix/store/z59b5cnpszla6cz69qdh7my75g4wbj50-qmk-custom-shajra-src
+        FLASH BINARY: /nix/store/nf3x5hr5zhkrcxmzara2k8qkkfrcqvr1-ergodoxez-custom-shajra-hex
+        
+        Teensy Loader, Command Line, Version 2.1
+        Read "/nix/store/nf3x5hr5zhkrcxmzara2k8qkkfrcqvr1-ergodoxez-custom-shajra-hex": 26620 bytes, 82.5% usage
+        Waiting for Teensy device...
+         (hint: press the reset button)
 
 2.  Flashing a Keyboardio Model 01 keyboard
 
@@ -189,16 +177,20 @@ Note, the first time you run the commands described below, you'll see Nix doing 
     ./flash-model01
     ```
     
-    ```shell
-    ./flash-model01 |
-        while read -r l
-        do
-    	echo "$l"
-    	if echo "$l" | grep -q glows
-    	then exit 0
-    	fi
-        done
-    ```
+        
+        Flashing Keyboardio's Model 01 (custom "shajra" keymap)
+        =======================================================
+        
+        FLASH SOURCE: /nix/store/a1vwkigv1his5apdr8k070wdb3l2lxw4-model01-custom-shajra-src
+        
+        BOARD_HARDWARE_PATH="/nix/store/136z5dj3nnyn7gf9fx6i7xq4an3v7iz3-kaleidoscope-src/arduino/hardware" /nix/store/136z5dj3nnyn7gf9fx6i7xq4an3v7iz3-kaleidoscope-src/arduino/hardware/keyboardio/avr/libraries/Kaleidoscope/bin//kaleidoscope-builder flash
+        Building ./Model01-Firmware 0.0.0 into /tmp/kaleidoscope-/sketch/7211352-Model01-Firmware.ino/output...
+        - Size: firmware/Model01-Firmware/Model01-Firmware-0.0.0.elf
+          - Program:   25566 bytes (89.2% Full)
+          - Data:       1217 bytes (47.5% Full)
+        
+        To update your keyboard's firmware, hold down the 'Prog' key on your keyboard,
+        and then press 'Enter'.
     
     The `Prog` key is hardwired to be the top-left-most key of the Keyboardio Model 01, but the `Enter` key can be remapped. If you forget where the `Enter` has been mapped to on your Keyboard, you can hit `Enter` on another connected keyboard.
 
@@ -229,10 +221,20 @@ If you run `nix-build` without the `--no-out-link` switch, Nix will leave symlin
 You can garbage collect `/nix/store` by running `nix-collect-garbage`:
 
 ```shell
-nix-collect-garbage
+nix-collect-garbage 2>&1
 ```
 
-    1 store paths deleted, 16.67 MiB freed
+    finding garbage collector roots...
+    deleting garbage...
+    deleting '/nix/store/ix75ycc5l74lzq494cjibdnxqpwjj236-model01-custom-shajra-flash.drv'
+    deleting '/nix/store/vq9swngh73g10wy7x011hmj0l762pgmv-model01-custom-shajra-hex.drv'
+    deleting '/nix/store/yx5jf78l3nh5i9c14vzwfbgc40f2yrw1-arduino-1.8.9.drv'
+    …
+    deleting '/nix/store/qrsppll14qdc8zpnblad7crpmapzwb3v-1.0.3.zip.drv'
+    deleting '/nix/store/trash'
+    deleting unused links...
+    note: currently hard linking saves -0.00 MiB
+    110 store paths deleted, 734.50 MiB freed
 
 The "result" symlinks generated by `nix-build` keep built artifacts from by garbage collected by `nix-collect-garbage`. Otherwise, these symlink are safe to delete, and [ignored by Git](./.gitignore).
 
