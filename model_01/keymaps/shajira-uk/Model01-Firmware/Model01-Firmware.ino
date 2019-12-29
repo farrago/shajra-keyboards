@@ -77,14 +77,14 @@ KEYMAPS
         , Key_PcApplication,    LSHIFT(Key_1),              LSHIFT(Key_Quote),    Key_LeftCurlyBracket, Key_RightCurlyBracket, Key_Quote,         Key_Home
         , LSHIFT(Key_RightAlt), LSHIFT(Key_6),              LSHIFT(Key_4),        Key_LeftParen,        Key_RightParen,        LSHIFT(Key_2)
         , OSM(RightAlt),        Key_NonUsPound,             LSHIFT(Key_5),        Key_LeftBracket,      Key_RightBracket,      Key_Backtick,      Key_End
-        , Key_Delete, Key_Backspace, Key_Tab, Key_Escape
+        , Key_LeftGui, Key_LeftShift, Key_LeftControl, Key_LeftAlt
         , ShiftToLayer(NUMPAD)
         // right hand
         , M(MACRO_VERSION_INFO), Key_F6,                    Key_F7,                Key_F8,            Key_F9,               Key_F10,               Key_F11
         , LSHIFT(Key_Equals),    ___,                       LSHIFT(Key_7),         LSHIFT(Key_8),     LSHIFT(Key_NonUsPound), Key_Slash,             Key_F12
         ,                        Key_LeftArrow,             Key_DownArrow,         Key_UpArrow,       Key_RightArrow,       LSHIFT(Key_Semicolon), LSHIFT(Key_RightAlt)
         , LSHIFT(Key_Minus),     Key_NonUsBackslashAndPipe, LSHIFT(Key_NonUsBackslashAndPipe), LSHIFT(Key_Comma), LSHIFT(Key_Period),   LSHIFT(Key_Slash),     OSM(RightAlt)
-        , Key_Backtick, Key_Enter, Key_Spacebar, Key_Insert
+        , Key_RightGui, Key_RightControl, Key_RightShift, Key_LeftAlt
         , ShiftToLayer(NUMPAD)
         )
     , [NUMPAD] =  KEYMAP_STACKED
